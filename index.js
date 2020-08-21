@@ -26,9 +26,15 @@ function renderRow(doc, fields) {
 
 }
 
-const actionButtons = () => {
+const actionButtons = (id) => {
+
+  console.log(id)
   let notInterested = document.createElement("button")
   notInterested.innerText = "Not Interested"
+  notInterested.onclick = function (id) {
+    console.log(id)
+    alert(id)
+  }
   let skip = document.createElement("button")
   skip.innerText = "Skip"
   let moreLikeThis = document.createElement("button")
@@ -44,6 +50,7 @@ function renderCards(jobs) {
 
   for (const job of jobs) {
     let cardDiv = document.createElement("div")
+    cardDiv.id = job.linkedinSlug
     let title = document.createElement("h4")
     let description = document.createElement("div")
     let link = document.createElement("a")
@@ -74,7 +81,7 @@ function renderCards(jobs) {
 
     cardDiv.append(renderRow(document.createElement("div"), [link, company, place, date]))
     cardDiv.append(renderRow(document.createElement("div"), [senorityLevel, jobFunction, employmentType, industries]))
-    cardDiv.append(renderRow(document.createElement("div"), actionButtons()))
+    cardDiv.append(renderRow(document.createElement("div"), actionButtons(job.linkedinSlug)))
 
     
 
