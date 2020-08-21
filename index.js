@@ -27,20 +27,26 @@ function renderRow(doc, fields) {
 }
 
 const actionButtons = (id) => {
-
-  console.log(id)
   let notInterested = document.createElement("button")
   notInterested.innerText = "Not Interested"
   notInterested.onclick = function (id) {
-    console.log(id)
-    alert(id)
+    alert("Not Interested")
   }
   let skip = document.createElement("button")
   skip.innerText = "Skip"
+  skip.onclick = function (id) {
+    alert("Skip")
+  }
   let moreLikeThis = document.createElement("button")
   moreLikeThis.innerText = "More Like This"
+  moreLikeThis.onclick = function (id) {
+    alert("More Like This")
+  }
   let apply = document.createElement("button")
   apply.innerText = "Apply"
+  apply.onclick = function (id) {
+    alert("Apply")
+  }
   
   return [notInterested, skip, moreLikeThis, apply]
 }
@@ -48,7 +54,8 @@ const actionButtons = (id) => {
 function renderCards(jobs) {
   //iterate therough the cards, return html
 
-  for (const job of jobs) {
+  for (let i = 0; i < 3; i++) {
+    let job = jobs[i]
     let cardDiv = document.createElement("div")
     cardDiv.id = job.linkedinSlug
     let title = document.createElement("h4")
@@ -85,11 +92,10 @@ function renderCards(jobs) {
 
     
 
-    cardDiv.classList.add('job-card')
+    cardDiv.classList.add('col')
 
 
     document.getElementById('cardContainer').append(cardDiv)
-    return
   }
 }
 
