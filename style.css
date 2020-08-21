@@ -1,0 +1,10 @@
+h1, h2 {
+  font-family: Lato;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
